@@ -82,8 +82,8 @@
 									placeholder="email@company.com"
 									v-model="emailAddress"
 									@keydown="validEmail = true"
-									:class="validEmail ? 'border-[--Grey]': 'border-[--Tomato] bg-[--Tomato-Light] text-[--Tomato] focus:border-[--Tomato] focus:bg-[--Tomato-Light] focus:text-[--Tomato] '"
-									class="p-3 rounded-lg border focus:bg-white focus:border-[Dark-Slate-Grey] focus:outline-[--Dark-Slate-Grey] ">
+									:class="validEmail ? 'border-[--Grey]  focus:bg-white ': 'border-[--Tomato] bg-[--Tomato-Light] text-[--Tomato] focus:border-[--Tomato] focus:bg-[--Tomato-Light] focus:text-[--Tomato] outline-[--Tomato] '"
+									class="p-3 rounded-lg border hover:border-[--Dark-Slate-Grey] focus:border-[--Dark-Slate-Grey] focus:outline-[--Dark-Slate-Grey] ">
 
 							</div>
 
