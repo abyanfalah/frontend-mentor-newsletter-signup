@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--Tomato: hsl(4, 100%, 67%);
+	--Tomato-Light: hsla(4, 100%, 82%, 0.267);
+	--Warm-Pink: hsl(339, 100%, 62%);
+	--Dark-Slate-Grey: hsl(234, 29%, 20%);
+	--Charcoal-Grey: hsl(235, 18%, 26%);
+	--Grey: hsl(231, 7%, 60%);
+}
