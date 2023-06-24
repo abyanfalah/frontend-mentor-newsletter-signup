@@ -27,76 +27,88 @@
 		</style>
 	</head>
 
-	<body>
+	<body class="bg-[--Charcoal-Grey] lg:h-screen lg:flex lg:justify-center lg:items-center">
 		<main id="app"
-			class="min-w-full min-h-screen text-[--Dark-Slate-Grey]">
+			class="w-full lg:w-auto lg text-[--Dark-Slate-Grey] ">
 
 			<!-- Signup view -->
 			<section v-if="!signupSuccess"
-				class="flex flex-col space-y-8 pb-10">
+				class="flex flex-col lg:flex-row-reverse lg:justify-center space-y-8 lg:space-y-0 pb-10 lg:p-5 lg:rounded-2xl bg-white">
 				<!-- header image -->
-				<img src="./assets/images/illustration-sign-up-mobile.svg"
-					class="w-screen"
-					alt="">
-				<!-- some text -->
-				<div class="flex flex-col px-6 space-y-8">
-					<h1 class="text-4xl font-bold">Stay updated!</h1>
-					<p>Join 60,000+ product managers receiving monthly updates on:</p>
-					<ul class="space-y-5">
-						<li v-for="topic in updateTopics"
-							class="flex items-starts space-x-4">
-							<img src="./assets/images/icon-list.svg"
-								alt=""
-								class="h-6 w-6">
-							<p>{{ topic }}</p>
-						</li>
-					</ul>
+				<div class="lg:rounded-xl lg:overflow-hidden">
+					<img src="./assets/images/illustration-sign-up-mobile.svg"
+						class="w-screen lg:hidden"
+						alt="">
 
+					<img src="./assets/images/illustration-sign-up-desktop.svg"
+						class="hidden lg:inline-block w-full h-full object-cover"
+						alt="">
 				</div>
 
-				<!-- subscribing form -->
-				<div class="px-6">
-					<form @submit.prevent="handleSubmit"
-						class="flex flex-col space-y-6">
 
-						<!-- input group -->
-						<div class="flex flex-col">
+				<!-- text and form -->
+				<div class="flex flex-col space-y-6 lg:justify-center lg:p-14">
+					<!-- some text -->
+					<div class="flex flex-col px-6 space-y-8">
+						<h1 class="text-4xl lg:text-6xl font-bold">Stay updated!</h1>
+						<p>Join 60,000+ product managers receiving monthly updates on:</p>
+						<ul class="space-y-5">
+							<li v-for="topic in updateTopics"
+								class="flex items-starts space-x-4">
+								<img src="./assets/images/icon-list.svg"
+									alt=""
+									class="h-6 w-6">
+								<p>{{ topic }}</p>
+							</li>
+						</ul>
 
-							<div class="flex justify-between text-xs font-bold mb-2">
-								<label for="email">Email address</label>
-								<p v-show="!validEmail"
-									class="text-[--Tomato]">Valid email required</p>
+					</div>
+
+					<!-- subscribing form -->
+					<div class="px-6">
+						<form @submit.prevent="handleSubmit"
+							class="flex flex-col space-y-6">
+
+							<!-- input group -->
+							<div class="flex flex-col">
+
+								<div class="flex justify-between text-xs font-bold mb-2">
+									<label for="email">Email address</label>
+									<p v-show="!validEmail"
+										class="text-[--Tomato]">Valid email required</p>
+								</div>
+
+								<input type="text"
+									placeholder="email@company.com"
+									v-model="emailAddress"
+									@keydown="validEmail = true"
+									:class="validEmail ? 'border-[--Grey]': 'border-[--Tomato] bg-[--Tomato-Light] text-[--Tomato] focus:border-[--Tomato] focus:bg-[--Tomato-Light] focus:text-[--Tomato] '"
+									class="p-3 rounded-lg border focus:bg-white focus:border-[Dark-Slate-Grey] focus:outline-[--Dark-Slate-Grey] ">
+
 							</div>
 
-							<input type="text"
-								placeholder="email@company.com"
-								v-model="emailAddress"
-								@keydown="validEmail = true"
-								:class="validEmail ? 'border-[--Grey]': 'border-[--Tomato] bg-[--Tomato-Light] text-[--Tomato] focus:border-[--Tomato] focus:bg-[--Tomato-Light] focus:text-[--Tomato] '"
-								class="p-3 rounded-lg border focus:bg-white focus:border-[Dark-Slate-Grey] focus:outline-[--Dark-Slate-Grey] ">
+							<button type="submit"
+								class="block p-4 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] ">Subscribe
+								to monthly
+								newsletter</button>
+						</form>
+					</div>
 
-						</div>
-
-						<button type="submit"
-							class="block p-4 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] ">Subscribe
-							to monthly
-							newsletter</button>
-					</form>
 				</div>
 
 			</section>
 
 			<!-- Signup success view -->
 			<section v-else
-				class="flex flex-col justify-between h-screen p-6">
+				class="flex flex-col lg:space-y-6 justify-between bg-white h-screen lg:overflow-hidden lg:w-[30rem] lg:h-[30rem] p-6  lg:p-14  lg:aspect-square lg:rounded-3xl">
 				<!-- success message -->
-				<div class=" flex flex-col justify-center h-full">
+				<div class=" flex flex-col justify-center grow lg:h-auto">
 					<div class="flex flex-col items-start space-y-6">
 						<img src="./assets/images/icon-success.svg"
 							class="h-14 w-14">
-						<h2 class="text-3xl font-bold">Thanks for subscribing!</h2>
+						<h2 class="text-4xl font-bold lg:text-5xl">Thanks for subscribing!</h2>
 						<p>A confirmation email has been sent to <span class="font-bold"
-								style="text-wrap:balance;">ash@loremcompany.com</span>.
+								style="text-wrap:balance;">{{ emailAddress ?? 'email@company.com' }}</span>.
 							Please open it and click the button inside to confirm your subscription.</p>
 					</div>
 
@@ -104,36 +116,11 @@
 
 				<!-- dismiss button -->
 				<button @click="signupSuccess = false; emailAddress = ''"
-					class="block p-4 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] ">
+					class="block p-4 lg:p-3 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] ">
 					Dismiss message
 				</button>
 			</section>
-
-
-
 		</main>
-
-		<!-- Sign-up form start -->
-
-		<p class="hidden">
-
-
-
-
-
-
-
-
-		</p>
-
-
-		<!-- Success message end -->
-
-		<div class="hidden">
-			Challenge by <a href="https://www.frontendmentor.io?ref=challenge"
-				target="_blank">Frontend Mentor</a>.
-			Coded by <a href="#">Your Name Here</a>.
-		</div>
 
 		<script src="app.js"></script>
 	</body>
