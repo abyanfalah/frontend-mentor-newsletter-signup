@@ -68,16 +68,17 @@
 									class="text-[--Tomato]">Valid email required</p>
 							</div>
 
-							<input type="email"
-								name="text"
+							<input type="text"
 								placeholder="email@company.com"
-								:class="validEmail ? 'border-[--Grey]': 'border-[--Tomato] bg-[--Tomato-Light] text-[--Tomato] '"
+								v-model="emailAddress"
+								@keydown="validEmail = true"
+								:class="validEmail ? 'border-[--Grey]': 'border-[--Tomato] bg-[--Tomato-Light] text-[--Tomato] focus:border-[--Tomato] focus:bg-[--Tomato-Light] focus:text-[--Tomato] '"
 								class="p-3 rounded-lg border focus:bg-white focus:border-[Dark-Slate-Grey] focus:outline-[--Dark-Slate-Grey] ">
 
 						</div>
 
 						<button type="submit"
-							class="block p-4 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] hover:bg-gradient-to-r hover:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato]">Subscribe
+							class="block p-4 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] ">Subscribe
 							to monthly
 							newsletter</button>
 					</form>
@@ -102,8 +103,8 @@
 				</div>
 
 				<!-- dismiss button -->
-				<button @click="signupSuccess = false"
-					class="w-full p-4 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] hover:bg-gradient-to-r hover:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato]">
+				<button @click="signupSuccess = false; emailAddress = ''"
+					class="block p-4 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] ">
 					Dismiss message
 				</button>
 			</section>

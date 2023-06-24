@@ -4,7 +4,7 @@
 
 :root {
 	--Tomato: hsl(4, 100%, 67%);
-	--Tomato-Light: hsla(4, 100%, 82%, 0.267);
+	--Tomato-Light: hsl(4, 100%, 93%);
 	--Warm-Pink: hsl(339, 100%, 62%);
 	--Dark-Slate-Grey: hsl(234, 29%, 20%);
 	--Charcoal-Grey: hsl(235, 18%, 26%);
