@@ -83,12 +83,12 @@
 									v-model="emailAddress"
 									@keydown="validEmail = true"
 									:class="validEmail ? 'border-[--Grey]  focus:bg-white ': 'border-[--Tomato] bg-[--Tomato-Light] text-[--Tomato] focus:border-[--Tomato] focus:bg-[--Tomato-Light] focus:text-[--Tomato] outline-[--Tomato] '"
-									class="p-3 rounded-lg border hover:border-[--Dark-Slate-Grey] focus:border-[--Dark-Slate-Grey] focus:outline-[--Dark-Slate-Grey] ">
+									class="p-3 rounded-lg border transition ease-out hover:border-[--Dark-Slate-Grey] focus:border-[--Dark-Slate-Grey] focus:outline-[--Dark-Slate-Grey] ">
 
 							</div>
 
 							<button type="submit"
-								class="block p-4 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] ">Subscribe
+								class="block p-4 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] transition ease-out">Subscribe
 								to monthly
 								newsletter</button>
 						</form>
@@ -116,7 +116,7 @@
 
 				<!-- dismiss button -->
 				<button @click="signupSuccess = false; emailAddress = ''"
-					class="block p-4 lg:p-3 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] ">
+					class="block p-4 lg:p-3 rounded-lg font-bold text-white bg-[--Dark-Slate-Grey] bg-gradient-to-r hover:from-[--Warm-Pink] focus:to-[--Tomato] focus:from-[--Warm-Pink] hover:to-[--Tomato] hover:shadow-lg hover:shadow-[--Tomato] transition ease-out ">
 					Dismiss message
 				</button>
 			</section>
