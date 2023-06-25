@@ -79,7 +79,9 @@
 								</div>
 
 								<input type="text"
-									placeholder="email@company.com"
+									id="email"
+									placeholder="
+									email@company.com"
 									v-model="emailAddress"
 									@keydown="validEmail = true"
 									:class="validEmail ? 'border-[--Grey]  focus:bg-white ': 'border-[--Tomato] bg-[--Tomato-Light] text-[--Tomato] focus:border-[--Tomato] focus:bg-[--Tomato-Light] focus:text-[--Tomato] outline-[--Tomato] '"
