@@ -9,7 +9,7 @@ createApp({
 		]);
 		const emailAddress = ref('');
 		const validEmail = ref(true);
-		const signupSuccess = ref(true);
+		const signupSuccess = ref(false);
 
 
 		const validateEmail = (email) => {
